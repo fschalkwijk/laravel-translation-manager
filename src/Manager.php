@@ -142,14 +142,14 @@ class Manager
             'key'    => $key,
         ]);
 
-        // Check if the database is different then the files
+        // Check if the database is different from the files
         $newStatus = $translation->value === $value ? Translation::STATUS_SAVED : Translation::STATUS_CHANGED;
         if ($newStatus !== (int) $translation->status) {
             $translation->status = $newStatus;
         }
 
-        // Only replace when empty, or explicitly told so
-        if ($replace || ! $translation->value) {
+        // Only replace when explicitly told to do so
+        if ($replace || !$translation->exists) {
             $translation->value = $value;
         }
 
