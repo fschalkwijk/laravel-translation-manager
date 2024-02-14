@@ -252,7 +252,7 @@ class Manager
 
     public function exportTranslations($group = null, $json = false)
     {
-        $group = basename($group);
+        //$group = basename($group);
         $basePath = $this->app['path.lang'];
 
         if (! is_null($group) && ! $json) {
